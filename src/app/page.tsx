@@ -237,30 +237,17 @@ function Services() {
     {
       title: "TRANSPORT KRAJOWY",
       subtitle: "Szybki przewóz w całej Polsce",
-      icon: (
-        <svg className="w-16 h-16 text-white/30 group-hover:text-[#E31937] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
+      image: "/service-krajowy.jpg",
     },
     {
       title: "TRANSPORT EU",
       subtitle: "Dostawy w całej Europie",
-      icon: (
-        <svg className="w-16 h-16 text-white/30 group-hover:text-[#E31937] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
+      image: "/service-eu.jpg",
     },
     {
       title: "POMOC DROGOWA",
       subtitle: "Holowanie i odbiór pojazdów",
-      icon: (
-        <svg className="w-16 h-16 text-white/30 group-hover:text-[#E31937] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
+      image: "/service-pomoc.jpg",
     },
   ];
 
@@ -283,8 +270,8 @@ function Services() {
         <div className="grid md:grid-cols-3 gap-4">
           {services.map((s) => (
             <div key={s.title} className="service-card group relative h-80 sm:h-96 bg-[#151515] rounded overflow-hidden cursor-pointer">
-              <div className="service-card-img absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#111]">
-                {s.icon}
+              <div className="service-card-img absolute inset-0">
+                <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
