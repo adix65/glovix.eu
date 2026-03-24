@@ -61,27 +61,22 @@ function Navbar() {
         }
       `}</style>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#111]/90 backdrop-blur-md">
-        <div className="flex items-center justify-center h-28 px-6 relative">
+      <nav className="fixed top-0 left-0 right-0 z-50">
+        <div className="flex items-center justify-center h-32 px-6 relative">
           <a href="#" className="flex items-center">
-            <img src="/logo.png" alt="GLOVIX" className="h-36 w-auto object-contain" />
+            <img src="/logo.png" alt="GLOVIX" className="h-44 w-auto object-contain" />
           </a>
           <button
             onClick={menuOpen ? closeMenu : openMenu}
-            className="absolute right-6 flex items-center gap-3 bg-[#1a1a1a] hover:bg-[#222] border border-white/10 rounded px-5 py-2.5 transition-colors z-[80]"
+            className="absolute right-6 flex items-center gap-2 hover:bg-white/10 rounded px-4 py-2 transition-colors z-[80]"
           >
             <span className="flex flex-col gap-[5px]">
               <span className={`w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen && !closing ? "rotate-45 translate-y-[7px]" : ""}`} />
               <span className={`w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen && !closing ? "opacity-0 scale-0" : ""}`} />
               <span className={`w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen && !closing ? "-rotate-45 -translate-y-[7px]" : ""}`} />
             </span>
-            <span className="text-white text-sm font-medium hidden sm:inline overflow-hidden h-5 relative">
-              <span className={`block transition-transform duration-300 ${menuOpen && !closing ? "-translate-y-5" : "translate-y-0"}`}>Menu</span>
-              <span className={`block transition-transform duration-300 ${menuOpen && !closing ? "-translate-y-5" : "translate-y-0"}`}>Close</span>
-            </span>
           </button>
         </div>
-        <div className="h-[3px] bg-[#E31937]" />
       </nav>
 
       {/* Fullscreen menu overlay */}
