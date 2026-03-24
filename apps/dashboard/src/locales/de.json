@@ -1,0 +1,110 @@
+{
+  "config": {
+    "apiKeys": {
+      "pageTitle": "API-Verbindungen",
+      "pageDescription": "Verwalten Sie Ihre Broker-Verbindungen und Handelskonten",
+
+      "noCredentialsAlert": "Keine gespeicherten API-Daten. Verbinden Sie Ihr Handelskonto, um loszulegen.",
+      "devPreviewBanner": "Entwicklervorschau",
+      "devPreviewDescription": "Diese Funktionen befinden sich in aktiver Entwicklung und können sich ohne Vorankündigung ändern.",
+
+      "badgeActive": "Aktiv",
+      "badgeInactive": "Inaktiv",
+      "badgeConnected": "Verbunden",
+      "badgeDisconnected": "Getrennt",
+      "badgeDevPreview": "DEV PREVIEW",
+      "badgeLive": "Live",
+      "badgeDemo": "Demo",
+
+      "forex": {
+        "sectionTitle": "MetaTrader-Verbindung",
+        "sectionDescription": "Verbinden Sie Ihr MetaTrader-Konto über MetaAPI für automatisierten Handel.",
+        "onboardingTitle": "MetaTrader-Konto verbinden",
+        "onboardingDescription": "Verbinden Sie Ihr MetaTrader 4 oder MetaTrader 5 Konto, um mit dem Handel zu beginnen. Sie benötigen Ihr MetaAPI-Token und Ihre Konto-ID.",
+        "statusConnected": "Verbunden",
+        "statusDisconnected": "Nicht verbunden",
+        "statusNeedsAttention": "Aufmerksamkeit erforderlich",
+        "labelToken": "MetaAPI-Token",
+        "labelAccountId": "Konto-ID",
+        "labelPlatform": "Plattform",
+        "labelTradingMode": "Handelsmodus",
+        "placeholderToken": "MetaAPI-Token eingeben",
+        "placeholderAccountId": "MetaAPI-Konto-ID eingeben",
+        "platformMT4": "MetaTrader 4",
+        "platformMT5": "MetaTrader 5",
+        "modeLive": "Live",
+        "modeDemo": "Demo",
+        "buttonConnect": "Konto verbinden",
+        "buttonSave": "Änderungen speichern",
+        "buttonTest": "Verbindung testen",
+        "buttonEdit": "Bearbeiten",
+        "buttonDelete": "Trennen",
+        "buttonCancel": "Abbrechen",
+        "deleteConfirmTitle": "Konto trennen",
+        "deleteConfirmDescription": "Möchten Sie dieses MetaTrader-Konto wirklich trennen? Die gespeicherten Anmeldedaten werden entfernt.",
+        "deleteConfirmButton": "Ja, trennen",
+        "testSuccess": "Verbindung erfolgreich",
+        "testFailed": "Verbindung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten.",
+        "saveSuccess": "Anmeldedaten erfolgreich gespeichert",
+        "saveFailed": "Anmeldedaten konnten nicht gespeichert werden",
+        "cardStatus": "Status",
+        "cardPlatform": "Plattform",
+        "cardAccountId": "Konto-ID",
+        "cardMode": "Modus",
+        "accountIdMasked": "••••{lastFour}"
+      },
+
+      "bybit": {
+        "sectionTitle": "Bybit API-Schlüssel",
+        "sectionDescription": "Verbinden Sie Ihr Bybit-Börsenkonto für den Kryptohandel.",
+        "collapseShow": "Bybit-Einstellungen anzeigen",
+        "collapseHide": "Bybit-Einstellungen ausblenden",
+        "labelApiKey": "API-Schlüssel",
+        "labelApiSecret": "API-Geheimnis",
+        "labelKeyName": "Schlüsselname",
+        "placeholderApiKey": "Bybit API-Schlüssel eingeben",
+        "placeholderApiSecret": "Bybit API-Geheimnis eingeben",
+        "placeholderKeyName": "Mein Bybit-Schlüssel",
+        "defaultKeyName": "Standardschlüssel",
+        "buttonSave": "Daten speichern",
+        "buttonTest": "Verbindung testen",
+        "buttonDelete": "Entfernen",
+        "deleteConfirmTitle": "Bybit-Daten entfernen",
+        "deleteConfirmDescription": "Möchten Sie Ihre Bybit-API-Daten wirklich entfernen?",
+        "deleteConfirmButton": "Ja, entfernen",
+        "permissionsTitle": "API-Berechtigungen",
+        "permRead": "Lesen",
+        "permReadDesc": "Kontostände und Positionen anzeigen",
+        "permTrade": "Handeln",
+        "permTradeDesc": "Aufträge erstellen und verwalten",
+        "permWithdraw": "Abheben",
+        "permWithdrawDesc": "Geld abheben (nicht empfohlen)",
+        "connectionStatus": "Verbindungsstatus",
+        "sourceUnknown": "Unbekannte Quelle",
+        "sourceApi": "API",
+        "sourceWebsocket": "WebSocket",
+        "testSuccess": "Bybit-Verbindung erfolgreich",
+        "testFailed": "Bybit-Verbindung fehlgeschlagen. Überprüfen Sie API-Schlüssel und Geheimnis.",
+        "saveSuccess": "Bybit-Daten gespeichert",
+        "saveFailed": "Bybit-Daten konnten nicht gespeichert werden"
+      },
+
+      "devMarketOrder": {
+        "sectionTitle": "Dev-Marktorder",
+        "sectionDescription": "Schnelle Testaufträge nur für Entwicklungszwecke.",
+        "labelSymbol": "Symbol",
+        "labelVolume": "Volumen",
+        "labelSide": "Seite",
+        "sideBuy": "Kaufen",
+        "sideSell": "Verkaufen",
+        "buttonSubmit": "Auftrag senden",
+        "warning": "Dies wird einen echten Auftrag auf Ihrem verbundenen Konto platzieren. Vorsichtig verwenden."
+      },
+
+      "tradingAccounts": {
+        "sectionTitle": "Handelskonten",
+        "sectionDescription": "Verwalten Sie Ihre Handelskonten und Konfigurationen."
+      }
+    }
+  }
+}

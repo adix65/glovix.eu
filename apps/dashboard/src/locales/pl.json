@@ -1,0 +1,110 @@
+{
+  "config": {
+    "apiKeys": {
+      "pageTitle": "Połączenia API",
+      "pageDescription": "Zarządzaj połączeniami brokerskimi i kontami handlowymi",
+
+      "noCredentialsAlert": "Brak zapisanych danych API. Połącz konto handlowe, aby rozpocząć.",
+      "devPreviewBanner": "Podgląd deweloperski",
+      "devPreviewDescription": "Te funkcje są w trakcie rozwoju i mogą się zmienić bez powiadomienia.",
+
+      "badgeActive": "Aktywny",
+      "badgeInactive": "Nieaktywny",
+      "badgeConnected": "Połączono",
+      "badgeDisconnected": "Rozłączono",
+      "badgeDevPreview": "DEV PREVIEW",
+      "badgeLive": "Live",
+      "badgeDemo": "Demo",
+
+      "forex": {
+        "sectionTitle": "Połączenie MetaTrader",
+        "sectionDescription": "Połącz swoje konto MetaTrader przez MetaAPI, aby umożliwić automatyczny trading.",
+        "onboardingTitle": "Połącz konto MetaTrader",
+        "onboardingDescription": "Połącz swoje konto MetaTrader 4 lub MetaTrader 5, aby rozpocząć trading. Potrzebny będzie token MetaAPI i ID konta.",
+        "statusConnected": "Połączono",
+        "statusDisconnected": "Brak połączenia",
+        "statusNeedsAttention": "Wymaga uwagi",
+        "labelToken": "Token MetaAPI",
+        "labelAccountId": "ID konta",
+        "labelPlatform": "Platforma",
+        "labelTradingMode": "Tryb handlu",
+        "placeholderToken": "Wprowadź swój token MetaAPI",
+        "placeholderAccountId": "Wprowadź ID konta MetaAPI",
+        "platformMT4": "MetaTrader 4",
+        "platformMT5": "MetaTrader 5",
+        "modeLive": "Live",
+        "modeDemo": "Demo",
+        "buttonConnect": "Połącz konto",
+        "buttonSave": "Zapisz zmiany",
+        "buttonTest": "Testuj połączenie",
+        "buttonEdit": "Edytuj",
+        "buttonDelete": "Rozłącz",
+        "buttonCancel": "Anuluj",
+        "deleteConfirmTitle": "Rozłącz konto",
+        "deleteConfirmDescription": "Czy na pewno chcesz rozłączyć to konto MetaTrader? Spowoduje to usunięcie zapisanych danych logowania.",
+        "deleteConfirmButton": "Tak, rozłącz",
+        "testSuccess": "Połączenie udane",
+        "testFailed": "Połączenie nieudane. Sprawdź swoje dane logowania.",
+        "saveSuccess": "Dane logowania zapisane pomyślnie",
+        "saveFailed": "Nie udało się zapisać danych logowania",
+        "cardStatus": "Status",
+        "cardPlatform": "Platforma",
+        "cardAccountId": "ID konta",
+        "cardMode": "Tryb",
+        "accountIdMasked": "••••{lastFour}"
+      },
+
+      "bybit": {
+        "sectionTitle": "Klucze API Bybit",
+        "sectionDescription": "Połącz swoje konto giełdy Bybit do handlu kryptowalutami.",
+        "collapseShow": "Pokaż ustawienia Bybit",
+        "collapseHide": "Ukryj ustawienia Bybit",
+        "labelApiKey": "Klucz API",
+        "labelApiSecret": "Sekret API",
+        "labelKeyName": "Nazwa klucza",
+        "placeholderApiKey": "Wprowadź klucz API Bybit",
+        "placeholderApiSecret": "Wprowadź sekret API Bybit",
+        "placeholderKeyName": "Mój klucz Bybit",
+        "defaultKeyName": "Domyślny klucz",
+        "buttonSave": "Zapisz dane",
+        "buttonTest": "Testuj połączenie",
+        "buttonDelete": "Usuń",
+        "deleteConfirmTitle": "Usuń dane Bybit",
+        "deleteConfirmDescription": "Czy na pewno chcesz usunąć dane API Bybit?",
+        "deleteConfirmButton": "Tak, usuń",
+        "permissionsTitle": "Uprawnienia API",
+        "permRead": "Odczyt",
+        "permReadDesc": "Podgląd sald i pozycji",
+        "permTrade": "Handel",
+        "permTradeDesc": "Składanie i zarządzanie zleceniami",
+        "permWithdraw": "Wypłata",
+        "permWithdrawDesc": "Wypłata środków (niezalecane)",
+        "connectionStatus": "Status połączenia",
+        "sourceUnknown": "Nieznane źródło",
+        "sourceApi": "API",
+        "sourceWebsocket": "WebSocket",
+        "testSuccess": "Połączenie z Bybit udane",
+        "testFailed": "Połączenie z Bybit nieudane. Sprawdź klucz API i sekret.",
+        "saveSuccess": "Dane Bybit zapisane",
+        "saveFailed": "Nie udało się zapisać danych Bybit"
+      },
+
+      "devMarketOrder": {
+        "sectionTitle": "Dev zlecenie rynkowe",
+        "sectionDescription": "Szybkie zlecenia testowe tylko do celów deweloperskich.",
+        "labelSymbol": "Symbol",
+        "labelVolume": "Wolumen",
+        "labelSide": "Strona",
+        "sideBuy": "Kup",
+        "sideSell": "Sprzedaj",
+        "buttonSubmit": "Złóż zlecenie",
+        "warning": "To złoży prawdziwe zlecenie na podłączonym koncie. Używaj ostrożnie."
+      },
+
+      "tradingAccounts": {
+        "sectionTitle": "Konta handlowe",
+        "sectionDescription": "Zarządzaj swoimi kontami handlowymi i konfiguracjami."
+      }
+    }
+  }
+}

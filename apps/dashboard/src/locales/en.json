@@ -1,0 +1,110 @@
+{
+  "config": {
+    "apiKeys": {
+      "pageTitle": "API Connections",
+      "pageDescription": "Manage your broker connections and trading accounts",
+
+      "noCredentialsAlert": "No saved API credentials. Connect your trading account to get started.",
+      "devPreviewBanner": "Developer Preview",
+      "devPreviewDescription": "These features are in active development and may change without notice.",
+
+      "badgeActive": "Active",
+      "badgeInactive": "Inactive",
+      "badgeConnected": "Connected",
+      "badgeDisconnected": "Disconnected",
+      "badgeDevPreview": "DEV PREVIEW",
+      "badgeLive": "Live",
+      "badgeDemo": "Demo",
+
+      "forex": {
+        "sectionTitle": "MetaTrader Connection",
+        "sectionDescription": "Connect your MetaTrader account via MetaAPI to enable automated trading.",
+        "onboardingTitle": "Connect MetaTrader Account",
+        "onboardingDescription": "Link your MetaTrader 4 or MetaTrader 5 account to start trading. You'll need your MetaAPI token and account ID.",
+        "statusConnected": "Connected",
+        "statusDisconnected": "Not Connected",
+        "statusNeedsAttention": "Needs Attention",
+        "labelToken": "MetaAPI Token",
+        "labelAccountId": "Account ID",
+        "labelPlatform": "Platform",
+        "labelTradingMode": "Trading Mode",
+        "placeholderToken": "Enter your MetaAPI token",
+        "placeholderAccountId": "Enter your MetaAPI account ID",
+        "platformMT4": "MetaTrader 4",
+        "platformMT5": "MetaTrader 5",
+        "modeLive": "Live",
+        "modeDemo": "Demo",
+        "buttonConnect": "Connect Account",
+        "buttonSave": "Save Changes",
+        "buttonTest": "Test Connection",
+        "buttonEdit": "Edit",
+        "buttonDelete": "Disconnect",
+        "buttonCancel": "Cancel",
+        "deleteConfirmTitle": "Disconnect Account",
+        "deleteConfirmDescription": "Are you sure you want to disconnect this MetaTrader account? This will remove saved credentials.",
+        "deleteConfirmButton": "Yes, Disconnect",
+        "testSuccess": "Connection successful",
+        "testFailed": "Connection failed. Please check your credentials.",
+        "saveSuccess": "Credentials saved successfully",
+        "saveFailed": "Failed to save credentials",
+        "cardStatus": "Status",
+        "cardPlatform": "Platform",
+        "cardAccountId": "Account ID",
+        "cardMode": "Mode",
+        "accountIdMasked": "••••{lastFour}"
+      },
+
+      "bybit": {
+        "sectionTitle": "Bybit API Keys",
+        "sectionDescription": "Connect your Bybit exchange account for crypto trading.",
+        "collapseShow": "Show Bybit Settings",
+        "collapseHide": "Hide Bybit Settings",
+        "labelApiKey": "API Key",
+        "labelApiSecret": "API Secret",
+        "labelKeyName": "Key Name",
+        "placeholderApiKey": "Enter your Bybit API key",
+        "placeholderApiSecret": "Enter your Bybit API secret",
+        "placeholderKeyName": "My Bybit Key",
+        "defaultKeyName": "Default Key",
+        "buttonSave": "Save Credentials",
+        "buttonTest": "Test Connection",
+        "buttonDelete": "Remove",
+        "deleteConfirmTitle": "Remove Bybit Credentials",
+        "deleteConfirmDescription": "Are you sure you want to remove your Bybit API credentials?",
+        "deleteConfirmButton": "Yes, Remove",
+        "permissionsTitle": "API Permissions",
+        "permRead": "Read",
+        "permReadDesc": "View account balances and positions",
+        "permTrade": "Trade",
+        "permTradeDesc": "Place and manage orders",
+        "permWithdraw": "Withdraw",
+        "permWithdrawDesc": "Withdraw funds (not recommended)",
+        "connectionStatus": "Connection Status",
+        "sourceUnknown": "Unknown source",
+        "sourceApi": "API",
+        "sourceWebsocket": "WebSocket",
+        "testSuccess": "Bybit connection successful",
+        "testFailed": "Bybit connection failed. Check your API key and secret.",
+        "saveSuccess": "Bybit credentials saved",
+        "saveFailed": "Failed to save Bybit credentials"
+      },
+
+      "devMarketOrder": {
+        "sectionTitle": "Dev Market Order",
+        "sectionDescription": "Quick test orders for development purposes only.",
+        "labelSymbol": "Symbol",
+        "labelVolume": "Volume",
+        "labelSide": "Side",
+        "sideBuy": "Buy",
+        "sideSell": "Sell",
+        "buttonSubmit": "Submit Order",
+        "warning": "This will place a real order on your connected account. Use with caution."
+      },
+
+      "tradingAccounts": {
+        "sectionTitle": "Trading Accounts",
+        "sectionDescription": "Manage your trading accounts and configurations."
+      }
+    }
+  }
+}
