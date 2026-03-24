@@ -317,11 +317,8 @@ function Fleet() {
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="group bg-[#111] border border-white/5 rounded overflow-hidden hover:border-[#E31937]/20 transition-all duration-500">
-            <div className="h-64 bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] flex items-center justify-center">
-              <svg className="w-32 h-32 text-white/10 group-hover:text-[#E31937]/30 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.8} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.8} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
-              </svg>
+            <div className="h-64 overflow-hidden">
+              <img src="/fleet-laweta.jpeg" alt="Iveco Daily Laweta" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             </div>
             <div className="p-8">
               <h4 className="text-2xl font-bold uppercase tracking-wide mb-4">Iveco Daily — Laweta</h4>
@@ -339,17 +336,8 @@ function Fleet() {
             </div>
           </div>
           <div className="group bg-[#111] border border-white/5 rounded overflow-hidden hover:border-[#E31937]/20 transition-all duration-500">
-            <div className="h-64 bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] flex items-center justify-center gap-3">
-              <svg className="w-24 h-24 text-white/10 group-hover:text-[#E31937]/30 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.8} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.8} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
-              </svg>
-              <span className="text-[#E31937] text-2xl font-bold">+</span>
-              <svg className="w-20 h-20 text-white/10 group-hover:text-[#E31937]/30 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <rect x="2" y="8" width="18" height="8" rx="1" strokeWidth={0.8} />
-                <circle cx="6" cy="17" r="2" strokeWidth={0.8} />
-                <circle cx="16" cy="17" r="2" strokeWidth={0.8} />
-              </svg>
+            <div className="h-64 overflow-hidden">
+              <img src="/fleet-zestaw.jpeg" alt="Zestaw z przyczepą" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             </div>
             <div className="p-8">
               <h4 className="text-2xl font-bold uppercase tracking-wide mb-4">Zestaw z przyczepą</h4>
