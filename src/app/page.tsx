@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const PHONE = "+48518296379";
 const EMAIL = "kontakt@glovix.eu";
@@ -392,18 +392,37 @@ function Testimonials() {
     { initials: "PT", name: "Patryk", vehicle: "FSO Polonez", text: "Wszystko w porządku według ustaleń, świetny kontakt. Polecam" },
   ];
 
-  const [page, setPage] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
   }, []);
-  const perPage = isMobile ? 1 : 3;
-  const totalPages = Math.ceil(reviews.length / perPage);
-  const safePage = Math.min(page, totalPages - 1);
-  const visible = reviews.slice(safePage * perPage, safePage * perPage + perPage);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener("scroll", checkScroll, { passive: true });
+    window.addEventListener("resize", checkScroll);
+    return () => {
+      el.removeEventListener("scroll", checkScroll);
+      window.removeEventListener("resize", checkScroll);
+    };
+  }, [checkScroll]);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = el.querySelector<HTMLElement>("[data-card]")?.offsetWidth ?? 350;
+    const gap = 24;
+    const amount = (cardWidth + gap) * (dir === "left" ? -1 : 1);
+    el.scrollBy({ left: amount, behavior: "smooth" });
+  };
 
   return (
     <section className="bg-[#0e0e0e] py-16 sm:py-28">
@@ -415,18 +434,26 @@ function Testimonials() {
             <p className="text-white/30 text-sm mt-4">Źródło: Clicktrans.pl — {reviews.length} pozytywnych opinii</p>
           </div>
           <div className="flex items-center gap-3">
-            <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={safePage === 0} className="w-12 h-12 border border-white/10 rounded flex items-center justify-center text-white/40 hover:text-white hover:border-[#E31937] transition-all disabled:opacity-20 disabled:hover:border-white/10 disabled:hover:text-white/40">
+            <button onClick={() => scroll("left")} disabled={!canScrollLeft} className="w-12 h-12 border border-white/10 rounded flex items-center justify-center text-white/40 hover:text-white hover:border-[#E31937] transition-all disabled:opacity-20 disabled:hover:border-white/10 disabled:hover:text-white/40">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" /></svg>
             </button>
-            <span className="text-white/30 text-sm tabular-nums min-w-[3rem] text-center">{safePage + 1} / {totalPages}</span>
-            <button onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))} disabled={safePage === totalPages - 1} className="w-12 h-12 border border-white/10 rounded flex items-center justify-center text-white/40 hover:text-white hover:border-[#E31937] transition-all disabled:opacity-20 disabled:hover:border-white/10 disabled:hover:text-white/40">
+            <button onClick={() => scroll("right")} disabled={!canScrollRight} className="w-12 h-12 border border-white/10 rounded flex items-center justify-center text-white/40 hover:text-white hover:border-[#E31937] transition-all disabled:opacity-20 disabled:hover:border-white/10 disabled:hover:text-white/40">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {visible.map((r, idx) => (
-            <div key={safePage * perPage + idx} className="bg-[#151515] border border-white/5 rounded p-6 sm:p-10 flex flex-col">
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 -mb-4"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}
+        >
+          <style jsx>{`.testimonials-scroll::-webkit-scrollbar { display: none; }`}</style>
+          {reviews.map((r, idx) => (
+            <div
+              key={idx}
+              data-card
+              className="bg-[#151515] border border-white/5 rounded p-6 sm:p-10 flex flex-col flex-shrink-0 w-[85vw] sm:w-[calc((100%-3rem)/3)] snap-start"
+            >
               <div className="flex gap-1 justify-center mb-6">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5 text-[#E31937]" fill="currentColor" viewBox="0 0 20 20">
