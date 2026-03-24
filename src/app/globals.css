@@ -10,21 +10,67 @@ html {
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
+  background: #0a0a0a;
+  color: #fff;
 }
 
-@layer utilities {
-  .text-gradient {
-    background: linear-gradient(135deg, #ffffff 0%, #C0C0C0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+/* Fullscreen hero background placeholder */
+.hero-bg {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 40%, #16213e 100%);
+  position: relative;
+}
 
-  .bg-gradient-dark {
-    background: linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%);
-  }
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(227, 25, 55, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 80%, rgba(192, 192, 192, 0.05) 0%, transparent 50%);
+}
 
-  .red-glow {
-    box-shadow: 0 0 40px rgba(227, 25, 55, 0.3);
-  }
+/* Stats section background */
+.stats-bg {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
+  position: relative;
+}
+
+.stats-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(227, 25, 55, 0.06) 0%, transparent 70%);
+}
+
+/* Social sidebar */
+.social-sidebar {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Service card hover zoom */
+.service-card-img {
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-card-img {
+  transform: scale(1.05);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E31937;
 }

@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="theme-color" content="#0A0A0A" />
         <script
           type="application/ld+json"

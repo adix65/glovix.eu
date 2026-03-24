@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://glovix.eu/sitemap.xml
