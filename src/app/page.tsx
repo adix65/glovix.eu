@@ -19,6 +19,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
   const [itemsVisible, setItemsVisible] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
 
   const openMenu = useCallback(() => {
     setMenuOpen(true);
@@ -41,6 +42,19 @@ function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y < 100) { setNavVisible(true); }
+      else if (y < lastY) { setNavVisible(true); }
+      else { setNavVisible(false); }
+      lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       <style jsx global>{`
@@ -61,19 +75,19 @@ function Navbar() {
         }
       `}</style>
 
-      <nav className="fixed top-0 left-0 right-0 z-50">
-        <div className="flex items-center justify-center h-32 px-6 relative">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${navVisible || menuOpen ? "translate-y-0" : "-translate-y-full"}`}>
+        <div className="flex items-center justify-center h-36 px-6 relative">
           <a href="#" className="flex items-center">
-            <img src="/logo.png" alt="GLOVIX" className="h-44 w-auto object-contain" />
+            <img src="/logo.png" alt="GLOVIX" className="h-56 w-auto object-contain" />
           </a>
           <button
-            onClick={menuOpen ? closeMenu : openMenu}
+            onClick={openMenu}
             className="absolute right-6 flex items-center gap-2 hover:bg-white/10 rounded px-4 py-2 transition-colors z-[80]"
           >
             <span className="flex flex-col gap-[5px]">
-              <span className={`w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen && !closing ? "rotate-45 translate-y-[7px]" : ""}`} />
-              <span className={`w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen && !closing ? "opacity-0 scale-0" : ""}`} />
-              <span className={`w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen && !closing ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+              <span className="w-5 h-[2px] bg-white" />
+              <span className="w-5 h-[2px] bg-white" />
+              <span className="w-5 h-[2px] bg-white" />
             </span>
           </button>
         </div>
@@ -82,6 +96,16 @@ function Navbar() {
       {/* Fullscreen menu overlay */}
       {menuOpen && (
         <div className={`fixed inset-0 z-[70] bg-[#0a0a0a] ${closing ? "menu-overlay-close" : "menu-overlay-open"}`}>
+          {/* Close button */}
+          <button
+            onClick={closeMenu}
+            className={`absolute top-8 right-8 z-[80] w-12 h-12 flex items-center justify-center hover:bg-white/10 rounded transition-all duration-500 ${itemsVisible ? "opacity-100 rotate-0" : "opacity-0 rotate-90"}`}
+          >
+            <span className="relative w-6 h-6">
+              <span className="absolute top-1/2 left-0 w-6 h-[2px] bg-white rotate-45" />
+              <span className="absolute top-1/2 left-0 w-6 h-[2px] bg-white -rotate-45" />
+            </span>
+          </button>
           <div className={`absolute inset-0 flex transition-opacity duration-300 ${itemsVisible ? "opacity-100" : "opacity-0"}`}>
             {/* Left side - navigation */}
             <div className="flex-1 flex flex-col justify-center px-8 sm:px-16 lg:px-24">
