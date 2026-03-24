@@ -15,7 +15,7 @@ function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#111]/90 backdrop-blur-md">
         <div className="flex items-center justify-center h-16 px-6 relative">
           <a href="#" className="flex items-center">
-            <img src="/logo.svg" alt="GLOVIX" className="h-10 w-auto" />
+            <img src="/logo.png" alt="GLOVIX" className="h-10 w-auto" />
           </a>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -95,11 +95,17 @@ function SocialSidebar() {
 function Hero() {
   return (
     <section className="hero-bg min-h-screen flex items-end relative overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center opacity-[0.07]">
-        <svg className="w-[600px] h-[400px]" fill="none" stroke="currentColor" strokeWidth={0.5} viewBox="0 0 24 24">
-          <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
-          <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
-        </svg>
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/hero-video.webm" type="video/webm" />
+        </video>
+        <div className="absolute inset-0 bg-black/50" />
       </div>
       <div className="relative z-10 px-8 sm:px-16 pb-24 pt-32 max-w-4xl">
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase leading-[0.95] tracking-tight mb-6">
@@ -358,7 +364,7 @@ function Footer() {
   return (
     <footer className="bg-[#080808] border-t border-white/5 py-10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-        <img src="/logo.svg" alt="GLOVIX" className="h-8 w-auto opacity-60" />
+        <img src="/logo.png" alt="GLOVIX" className="h-8 w-auto opacity-60" />
         <p className="text-white/20 text-xs tracking-wider">
           &copy; {new Date().getFullYear()} GLOVIX. Wszelkie prawa zastrzeżone.
         </p>
