@@ -1,14 +1,76 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const PHONE = "+48XXXXXXXXX";
 const EMAIL = "kontakt@glovix.eu";
 const WHATSAPP = "+48XXXXXXXXX";
 
 /* ───────────────────────── NAVBAR (fostla-style: logo center, menu btn right) ── */
+const MENU_ITEMS = [
+  { label: "Start", href: "#" },
+  { label: "O nas", href: "#o-nas" },
+  { label: "Usługi", href: "#uslugi" },
+  { label: "Flota", href: "#flota" },
+  { label: "Kontakt", href: "#kontakt" },
+];
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [animating, setAnimating] = useState(false);
+  const [svgPath, setSvgPath] = useState("M 0 100 V 100 Q 50 100 100 100 V 100 z");
+  const [contentVisible, setContentVisible] = useState(false);
+  const [itemsVisible, setItemsVisible] = useState(false);
+
+  const openMenu = useCallback(() => {
+    if (animating) return;
+    setAnimating(true);
+    setMenuOpen(true);
+    setContentVisible(false);
+    setItemsVisible(false);
+
+    // Phase 1: SVG curtain drops from top (curve down)
+    setSvgPath("M 0 0 V 50 Q 50 100 100 50 V 0 z");
+    setTimeout(() => {
+      // Phase 2: SVG covers full screen
+      setSvgPath("M 0 0 V 100 Q 50 100 100 100 V 0 z");
+    }, 300);
+    setTimeout(() => {
+      // Phase 3: Show content
+      setContentVisible(true);
+    }, 500);
+    setTimeout(() => {
+      // Phase 4: Stagger menu items
+      setItemsVisible(true);
+      setAnimating(false);
+    }, 600);
+  }, [animating]);
+
+  const closeMenu = useCallback(() => {
+    if (animating) return;
+    setAnimating(true);
+    setItemsVisible(false);
+    setContentVisible(false);
+
+    setTimeout(() => {
+      // SVG retracts upward with curve
+      setSvgPath("M 0 0 V 50 Q 50 0 100 50 V 0 z");
+    }, 200);
+    setTimeout(() => {
+      setSvgPath("M 0 0 V 0 Q 50 0 100 0 V 0 z");
+    }, 500);
+    setTimeout(() => {
+      setMenuOpen(false);
+      setSvgPath("M 0 100 V 100 Q 50 100 100 100 V 100 z");
+      setAnimating(false);
+    }, 700);
+  }, [animating]);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   return (
     <>
@@ -18,50 +80,98 @@ function Navbar() {
             <img src="/logo.png" alt="GLOVIX" className="h-20 w-auto" />
           </a>
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="absolute right-6 flex items-center gap-3 bg-[#1a1a1a] hover:bg-[#222] border border-white/10 rounded px-5 py-2.5 transition-colors"
+            onClick={menuOpen ? closeMenu : openMenu}
+            className="absolute right-6 flex items-center gap-3 bg-[#1a1a1a] hover:bg-[#222] border border-white/10 rounded px-5 py-2.5 transition-colors z-[80]"
           >
             <span className="flex flex-col gap-[5px]">
-              <span className={`w-5 h-[2px] bg-white transition-all ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
-              <span className={`w-5 h-[2px] bg-white transition-all ${menuOpen ? "opacity-0" : ""}`} />
-              <span className={`w-5 h-[2px] bg-white transition-all ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+              <span className={`w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+              <span className={`w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen ? "opacity-0 scale-0" : ""}`} />
+              <span className={`w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
             </span>
-            <span className="text-white text-sm font-medium hidden sm:inline">Menu</span>
+            <span className="text-white text-sm font-medium hidden sm:inline overflow-hidden h-5 relative">
+              <span className={`block transition-transform duration-300 ${menuOpen ? "-translate-y-5" : "translate-y-0"}`}>Menu</span>
+              <span className={`block transition-transform duration-300 ${menuOpen ? "-translate-y-5" : "translate-y-0"}`}>Close</span>
+            </span>
           </button>
         </div>
         <div className="h-[3px] bg-[#E31937]" />
       </nav>
 
+      {/* Fullscreen menu overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[60] bg-[#0a0a0a]/98 backdrop-blur-xl flex items-center justify-center">
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="absolute top-5 right-6 flex items-center gap-3 bg-[#1a1a1a] border border-white/10 rounded px-5 py-2.5"
+        <div className="fixed inset-0 z-[70]">
+          {/* SVG curtain animation */}
+          <svg
+            className="absolute inset-0 w-full h-full"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
           >
-            <span className="flex flex-col gap-[5px]">
-              <span className="w-5 h-[2px] bg-white rotate-45 translate-y-[7px]" />
-              <span className="w-5 h-[2px] bg-white opacity-0" />
-              <span className="w-5 h-[2px] bg-white -rotate-45 -translate-y-[7px]" />
-            </span>
-            <span className="text-white text-sm font-medium hidden sm:inline">Zamknij</span>
-          </button>
-          <div className="flex flex-col items-center gap-8">
-            {[
-              { label: "Start", href: "#" },
-              { label: "O nas", href: "#o-nas" },
-              { label: "Usługi", href: "#uslugi" },
-              { label: "Flota", href: "#flota" },
-              { label: "Kontakt", href: "#kontakt" },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="text-4xl sm:text-5xl font-bold text-white/80 hover:text-[#E31937] transition-colors tracking-wider"
-              >
-                {item.label}
-              </a>
-            ))}
+            <path
+              d={svgPath}
+              fill="#0a0a0a"
+              className="transition-all duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)]"
+            />
+          </svg>
+
+          {/* Menu content */}
+          <div
+            className={`absolute inset-0 flex transition-opacity duration-300 ${
+              contentVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {/* Left side - navigation */}
+            <div className="flex-1 flex flex-col justify-center px-8 sm:px-16 lg:px-24">
+              {/* "MENU" watermark */}
+              <div className="absolute top-8 left-8 sm:left-16 lg:left-24">
+                <span className={`text-[10px] sm:text-xs uppercase tracking-[6px] text-white/20 font-medium transition-all duration-500 ${contentVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}>
+                  MENU
+                </span>
+              </div>
+
+              <nav className="flex flex-col gap-2 sm:gap-4">
+                {MENU_ITEMS.map((item, i) => (
+                  <div key={item.label} className="overflow-hidden">
+                    <a
+                      href={item.href}
+                      onClick={closeMenu}
+                      className={`group flex items-center gap-4 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+                        itemsVisible
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-[110%] opacity-0"
+                      }`}
+                      style={{ transitionDelay: itemsVisible ? `${i * 80}ms` : "0ms" }}
+                    >
+                      <span className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white/80 group-hover:text-[#E31937] transition-colors duration-300 tracking-tight leading-[1.1]">
+                        {item.label}
+                      </span>
+                      <span className="w-0 group-hover:w-12 h-[2px] bg-[#E31937] transition-all duration-300" />
+                    </a>
+                  </div>
+                ))}
+              </nav>
+            </div>
+
+            {/* Right side - contact info */}
+            <div
+              className={`hidden lg:flex flex-col justify-center w-[350px] xl:w-[400px] border-l border-white/5 px-12 transition-all duration-700 delay-300 ${
+                contentVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+              }`}
+            >
+              <div className="space-y-8 text-sm text-white/50">
+                <div>
+                  <h6 className="text-[10px] uppercase tracking-[4px] text-white/25 mb-3">Telefon</h6>
+                  <a href={`tel:${PHONE}`} className="text-white/70 hover:text-white transition-colors">{PHONE}</a>
+                </div>
+                <div>
+                  <h6 className="text-[10px] uppercase tracking-[4px] text-white/25 mb-3">E-Mail</h6>
+                  <a href={`mailto:${EMAIL}`} className="text-white/70 hover:text-white transition-colors">{EMAIL}</a>
+                </div>
+                <div>
+                  <h6 className="text-[10px] uppercase tracking-[4px] text-white/25 mb-3">WhatsApp</h6>
+                  <a href={`https://wa.me/${WHATSAPP}`} className="text-white/70 hover:text-white transition-colors">{WHATSAPP}</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
