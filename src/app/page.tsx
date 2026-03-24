@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useCallback } from "react";
 
-const PHONE = "+48XXXXXXXXX";
+const PHONE = "+48518296379";
 const EMAIL = "kontakt@glovix.eu";
-const WHATSAPP = "+48XXXXXXXXX";
+const WHATSAPP = "+48518296379";
 
 /* ───────────────────────── NAVBAR (fostla-style: logo center, menu btn right) ── */
 const MENU_ITEMS = [
@@ -363,30 +363,77 @@ function Fleet() {
 /* ───────────────────────── TESTIMONIALS ── */
 function Testimonials() {
   const reviews = [
-    { text: "Profesjonalna obsługa od początku do końca. Samochód dotarł w idealnym stanie, w ustalonym terminie. Polecam każdemu!", name: "Marcin K." },
-    { text: "Korzystałem z usług GLOVIX kilkukrotnie — transport z Niemiec do Polski. Zawsze bezproblemowo, kontakt świetny, ceny konkurencyjne.", name: "Tomasz W." },
-    { text: "Bardzo sprawna realizacja zlecenia. Auto odebrane z aukcji i dostarczone pod dom w 3 dni. Na pewno skorzystam ponownie.", name: "Anna S." },
+    { initials: "MO", name: "Marek", vehicle: "Suzuki Vitara", text: "Serdecznie polecam, wszystko zgodnie z ustaleniami kierowca udostępnił śledzenie przesyłki a więc na bieżąco można było monitorować gdzie znajduje się ładunek co ułatwia organizację pracy." },
+    { initials: "FK", name: "Florian", vehicle: "Citroen C3 x 1, Citroen C3 AirCross x 1", text: "Absolut empfehlenswert. Schnell und zuverlässig. Fahrer war immer erreichbar und hat auf Wunsch Rückmeldung gegeben. Sehr gerne wieder - Vielen Dank" },
+    { initials: "AA", name: "Adrian", vehicle: "Opel Astra", text: "Mega polecam!" },
+    { initials: "KS", name: "Kamil", vehicle: "Opel Astra", text: "Wszystko ok szybko i sprawnie" },
+    { initials: "DL", name: "Denis", vehicle: "Mazda RX-8", text: "Tutto perfetto e puntuale" },
+    { initials: "PF", name: "Paolo", vehicle: "Dacia Dokker", text: "Sono rimasto molto soddisfatto del servizio. Comunicazione chiara, servizio efficiente, sono stati rispettati i tempi di consegna. Sicuramente ho trovato un riferimento affidabile e sicuro per le prossime volte. Grazie Bartek" },
+    { initials: "KS", name: "Karol", vehicle: "Audi A4", text: "Serdecznie polecam przewoźnika." },
+    { initials: "GS", name: "Giuseppe", vehicle: "Aixam", text: "Persona seria e professionale al massimo, trasporto avvenuto nei tempi previsti senza alcun problema e ad un prezzo onesto. Consigliatissimo" },
+    { initials: "GK", name: "Georgios", vehicle: "Renault Captur", text: "Very professional and helpful. Car was delivered within the accepted time frame. Highly recommended!!!" },
+    { initials: "RK", name: "Rafael", vehicle: "Ford Nugget Transit Camper", text: "Szybko bez problemowo Polecam" },
+    { initials: "RB", name: "Roman", vehicle: "Renault Kangoo Maxi", text: "Alle wie vereinbart, danke :)" },
+    { initials: "PŁ", name: "Paweł", vehicle: "Peugeot Expert", text: "Wszystko ok, polecam" },
+    { initials: "MT", name: "Mariusz", vehicle: "Łyżka do koparki", text: "Polecam, wszystko zgodnie z ustaleniami - dobry kontakt, terminowe dostarczenie i odebranie. POLECAM!" },
+    { initials: "SN", name: "Stefan", vehicle: "Volkswagen Golf", text: "Alles bestens! Vielen Dank" },
+    { initials: "PK", name: "Peter", vehicle: "Volkswagen Transporter", text: "Hat alles perfekt geklappt sehr zu empfehlen. Top" },
+    { initials: "PO", name: "Przemyslaw", vehicle: "Fiat Ducato", text: "Polecam, szybki przyjazd wieczorem, duże auto do przewiezienia miałem, daleka trasa, dostarczone szybko, na drugi dzień." },
+    { initials: "EL", name: "Enzo", vehicle: "Ford Spartan", text: "Amazing service." },
+    { initials: "SP", name: "Sławek", vehicle: "Renault Clio", text: "Pełna profeska, gość mega słowny i punktualny nawet zmieniając miejsce rozładunku nie było żadnego problemu dziękuję i polecam tą firmę!!!" },
+    { initials: "OK", name: "Oskar", vehicle: "Audi Cabriolet", text: "Bardzo profesjonalnie, dobra komunikacja, bardzo sympatyczny gość. Gorąco polecam" },
+    { initials: "PR", name: "Przemek", vehicle: "BMW 5 Series", text: "Wszystko dobrze, dobra cena, dobry kontakt i szybko dostarczona przesyłka. Polecam!" },
+    { initials: "ŁM", name: "Łukasz", vehicle: "Citroen DS3", text: "Szybki kontakt, sprawnie i w dobrej cenie zrealizowany transport mojego Citroena DS3. Wszystko tak jak być powinno. POLECAM" },
+    { initials: "ŁP", name: "Łukasz", vehicle: "Nissan Pathfinder", text: "Bardzo miły i rzetelny przewoźnik, polecam z całą pewnością" },
+    { initials: "WD", name: "Wojciech", vehicle: "Citroen C3", text: "Kontakt bardzo konkretny i rzeczowy, żadnych problemów. Godny zaufania. Polecam!!!" },
+    { initials: "TG", name: "Tadeusz", vehicle: "Ford Pickup", text: "Wszystko w najlepszym porządku dostarczony samochód w całości według ustalonych terminów. Polecam." },
+    { initials: "AT", name: "Andrzej", vehicle: "Lexus RX", text: "Bez problemowo, solidnie i sympatycznie." },
+    { initials: "KL", name: "Kamil", vehicle: "Mazda 5", text: "Super transport miły kontakt punktualny bez problemu z dogadaniem tematu. Po prostu super, na pewno nie raz skorzystam jeszcze z tego transportu" },
+    { initials: "PT", name: "Patryk", vehicle: "FSO Polonez", text: "Wszystko w porządku według ustaleń, świetny kontakt. Polecam" },
   ];
+
+  const [page, setPage] = useState(0);
+  const perPage = 3;
+  const totalPages = Math.ceil(reviews.length / perPage);
+  const visible = reviews.slice(page * perPage, page * perPage + perPage);
 
   return (
     <section className="bg-[#0e0e0e] py-28">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="mb-16">
-          <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-wide">Co mówią nasi</h2>
-          <h3 className="text-4xl sm:text-5xl font-bold uppercase tracking-wide mt-2">Klienci</h3>
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 gap-6">
+          <div>
+            <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-wide">Opinie</h2>
+            <h3 className="text-4xl sm:text-5xl font-bold uppercase tracking-wide mt-2">Klientów</h3>
+            <p className="text-white/30 text-sm mt-4">Źródło: Clicktrans.pl — {reviews.length} pozytywnych opinii</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={page === 0} className="w-12 h-12 border border-white/10 rounded flex items-center justify-center text-white/40 hover:text-white hover:border-[#E31937] transition-all disabled:opacity-20 disabled:hover:border-white/10 disabled:hover:text-white/40">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <span className="text-white/30 text-sm tabular-nums min-w-[3rem] text-center">{page + 1} / {totalPages}</span>
+            <button onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))} disabled={page === totalPages - 1} className="w-12 h-12 border border-white/10 rounded flex items-center justify-center text-white/40 hover:text-white hover:border-[#E31937] transition-all disabled:opacity-20 disabled:hover:border-white/10 disabled:hover:text-white/40">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {reviews.map((r) => (
-            <div key={r.name} className="bg-[#151515] border border-white/5 rounded p-8 sm:p-10">
+          {visible.map((r, idx) => (
+            <div key={page * perPage + idx} className="bg-[#151515] border border-white/5 rounded p-8 sm:p-10 flex flex-col">
               <div className="flex gap-1 justify-center mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <svg key={i} className="w-5 h-5 text-[#E31937]" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
-              <p className="text-white/60 text-sm leading-relaxed text-center mb-8">&bdquo;{r.text}&rdquo;</p>
-              <p className="text-white/30 text-sm text-center font-medium tracking-wider">{r.name}</p>
+              <p className="text-white/60 text-sm leading-relaxed text-center mb-6 flex-1">&bdquo;{r.text}&rdquo;</p>
+              <div className="text-center">
+                <div className="w-10 h-10 bg-[#E31937]/10 border border-[#E31937]/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-[#E31937] text-xs font-bold">{r.initials}</span>
+                </div>
+                <p className="text-white/50 text-sm font-medium">{r.name}</p>
+                <p className="text-white/20 text-xs mt-1">{r.vehicle}</p>
+              </div>
             </div>
           ))}
         </div>
