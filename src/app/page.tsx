@@ -237,17 +237,17 @@ function Services() {
     {
       title: "TRANSPORT KRAJOWY",
       subtitle: "Szybki przewóz w całej Polsce",
-      image: "/service-krajowy.jpg",
+      image: "/service-krajowy.jpeg",
     },
     {
       title: "TRANSPORT EU",
       subtitle: "Dostawy w całej Europie",
-      image: "/service-eu.jpg",
+      image: "/service-eu.jpeg",
     },
     {
       title: "POMOC DROGOWA",
       subtitle: "Holowanie i odbiór pojazdów",
-      image: "/service-pomoc.jpg",
+      image: "/service-pomoc.jpeg",
     },
   ];
 
