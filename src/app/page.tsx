@@ -76,13 +76,13 @@ function Navbar() {
       `}</style>
 
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${navVisible || menuOpen ? "translate-y-0" : "-translate-y-full"}`}>
-        <div className="flex items-center justify-center h-36 px-6 relative">
+        <div className="flex items-center justify-center h-20 sm:h-36 px-4 sm:px-6 relative">
           <a href="#" className="flex items-center">
-            <img src="/logo.png" alt="GLOVIX" className="h-56 w-auto object-contain" />
+            <img src="/logo.png" alt="GLOVIX" className="h-32 sm:h-56 w-auto object-contain" />
           </a>
           <button
             onClick={openMenu}
-            className="absolute right-6 flex items-center gap-2 hover:bg-white/10 rounded px-4 py-2 transition-colors z-[80]"
+            className="absolute right-4 sm:right-6 flex items-center gap-2 hover:bg-white/10 rounded px-3 py-2 sm:px-4 transition-colors z-[80]"
           >
             <span className="flex flex-col gap-[5px]">
               <span className="w-5 h-[2px] bg-white" />
@@ -99,7 +99,7 @@ function Navbar() {
           {/* Close button */}
           <button
             onClick={closeMenu}
-            className={`absolute top-8 right-8 z-[80] w-12 h-12 flex items-center justify-center hover:bg-white/10 rounded transition-all duration-500 ${itemsVisible ? "opacity-100 rotate-0" : "opacity-0 rotate-90"}`}
+            className={`absolute top-6 right-4 sm:top-8 sm:right-8 z-[80] w-12 h-12 flex items-center justify-center hover:bg-white/10 rounded transition-all duration-500 ${itemsVisible ? "opacity-100 rotate-0" : "opacity-0 rotate-90"}`}
           >
             <span className="relative w-6 h-6">
               <span className="absolute top-1/2 left-0 w-6 h-[2px] bg-white rotate-45" />
@@ -108,8 +108,8 @@ function Navbar() {
           </button>
           <div className={`absolute inset-0 flex transition-opacity duration-300 ${itemsVisible ? "opacity-100" : "opacity-0"}`}>
             {/* Left side - navigation */}
-            <div className="flex-1 flex flex-col justify-center px-8 sm:px-16 lg:px-24">
-              <div className="absolute top-8 left-8 sm:left-16 lg:left-24">
+            <div className="flex-1 flex flex-col justify-center px-6 sm:px-16 lg:px-24">
+              <div className="absolute top-6 left-6 sm:top-8 sm:left-16 lg:left-24">
                 <span className={`text-[10px] sm:text-xs uppercase tracking-[6px] text-white/20 font-medium transition-all duration-500 ${itemsVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}>
                   MENU
                 </span>
@@ -128,7 +128,7 @@ function Navbar() {
                       }`}
                       style={{ transitionDelay: itemsVisible ? `${i * 80}ms` : "0ms" }}
                     >
-                      <span className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white/80 group-hover:text-[#E31937] transition-colors duration-300 tracking-tight leading-[1.1]">
+                      <span className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white/80 group-hover:text-[#E31937] transition-colors duration-300 tracking-tight leading-[1.1]">
                         {item.label}
                       </span>
                       <span className="w-0 group-hover:w-12 h-[2px] bg-[#E31937] transition-all duration-300" />
@@ -215,14 +215,14 @@ function Hero() {
         )}
         <div className="absolute inset-0 bg-black/50" />
       </div>
-      <div className="relative z-10 px-8 sm:px-16 pb-24 pt-32 max-w-4xl">
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase leading-[0.95] tracking-tight mb-6">
+      <div className="relative z-10 px-6 sm:px-16 pb-20 sm:pb-24 pt-28 sm:pt-32 max-w-4xl">
+        <h1 className="text-4xl sm:text-7xl lg:text-8xl font-black uppercase leading-[0.95] tracking-tight mb-4 sm:mb-6">
           GLOVIX
         </h1>
-        <p className="text-xl sm:text-2xl font-light text-white/80 mb-2">
+        <p className="text-lg sm:text-2xl font-light text-white/80 mb-1 sm:mb-2">
           Transport samochodów
         </p>
-        <p className="text-lg sm:text-xl font-light text-white/60">
+        <p className="text-base sm:text-xl font-light text-white/60">
           Laweta Iveco Daily z przyczepą
         </p>
       </div>
@@ -252,16 +252,16 @@ function Services() {
   ];
 
   return (
-    <section id="uslugi" className="bg-[#0a0a0a] py-28">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light uppercase tracking-wide">
+    <section id="uslugi" className="bg-[#0a0a0a] py-16 sm:py-28">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="text-center mb-12 sm:mb-20">
+          <h2 className="text-2xl sm:text-5xl lg:text-6xl font-light uppercase tracking-wide">
             Profesjonalny &amp; niezawodny
           </h2>
-          <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide mt-2">
+          <h3 className="text-2xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide mt-1 sm:mt-2">
             Transport pojazdów
           </h3>
-          <p className="text-white/50 text-base sm:text-lg max-w-3xl mx-auto mt-8 leading-relaxed">
+          <p className="text-white/50 text-sm sm:text-lg max-w-3xl mx-auto mt-4 sm:mt-8 leading-relaxed">
             Specjalizujemy się w bezpiecznym przewozie samochodów na terenie
             Polski i całej Europy. Dysponujemy lawetą Iveco Daily z przyczepą,
             co pozwala na transport do 3 pojazdów jednocześnie.
@@ -269,13 +269,13 @@ function Services() {
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           {services.map((s) => (
-            <div key={s.title} className="service-card group relative h-80 sm:h-96 bg-[#151515] rounded overflow-hidden cursor-pointer">
+            <div key={s.title} className="service-card group relative h-60 sm:h-96 bg-[#151515] rounded overflow-hidden cursor-pointer">
               <div className="service-card-img absolute inset-0">
                 <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <h4 className="text-xl sm:text-2xl font-bold uppercase tracking-wider mb-2">{s.title}</h4>
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
+                <h4 className="text-lg sm:text-2xl font-bold uppercase tracking-wider mb-1 sm:mb-2">{s.title}</h4>
                 <p className="text-white/50 text-sm">{s.subtitle}</p>
               </div>
             </div>
@@ -289,16 +289,16 @@ function Services() {
 /* ───────────────────────── STATS ── */
 function Stats() {
   return (
-    <section id="o-nas" className="stats-bg relative py-32 sm:py-44 overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-around gap-16">
+    <section id="o-nas" className="stats-bg relative py-20 sm:py-44 overflow-hidden">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-around gap-10 sm:gap-16">
         {[
           { value: "EU", label: "Zasięg" },
           { value: "24/7", label: "Dostępność" },
           { value: "100%", label: "Ubezpieczenie" },
         ].map((s) => (
           <div key={s.label} className="text-center">
-            <div className="text-6xl sm:text-7xl lg:text-8xl font-black text-white italic tracking-tight">{s.value}</div>
-            <div className="text-white/50 text-base sm:text-lg mt-3 font-light tracking-wider">{s.label}</div>
+            <div className="text-5xl sm:text-7xl lg:text-8xl font-black text-white italic tracking-tight">{s.value}</div>
+            <div className="text-white/50 text-sm sm:text-lg mt-2 sm:mt-3 font-light tracking-wider">{s.label}</div>
           </div>
         ))}
       </div>
@@ -309,19 +309,19 @@ function Stats() {
 /* ───────────────────────── FLEET ── */
 function Fleet() {
   return (
-    <section id="flota" className="bg-[#0a0a0a] py-28">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light uppercase tracking-wide">Nasza</h2>
-          <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide mt-2">Flota</h3>
+    <section id="flota" className="bg-[#0a0a0a] py-16 sm:py-28">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light uppercase tracking-wide">Nasza</h2>
+          <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide mt-1 sm:mt-2">Flota</h3>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="group bg-[#111] border border-white/5 rounded overflow-hidden hover:border-[#E31937]/20 transition-all duration-500">
-            <div className="h-64 overflow-hidden">
+            <div className="h-48 sm:h-64 overflow-hidden">
               <img src="/fleet-laweta.jpeg" alt="Iveco Daily Laweta" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             </div>
-            <div className="p-8">
-              <h4 className="text-2xl font-bold uppercase tracking-wide mb-4">Iveco Daily — Laweta</h4>
+            <div className="p-5 sm:p-8">
+              <h4 className="text-xl sm:text-2xl font-bold uppercase tracking-wide mb-3 sm:mb-4">Iveco Daily — Laweta</h4>
               <p className="text-white/40 text-sm leading-relaxed mb-6">
                 Nowoczesna laweta na bazie Iveco Daily z hydraulicznym systemem załadunku. Idealny do szybkiego i bezpiecznego transportu.
               </p>
@@ -336,11 +336,11 @@ function Fleet() {
             </div>
           </div>
           <div className="group bg-[#111] border border-white/5 rounded overflow-hidden hover:border-[#E31937]/20 transition-all duration-500">
-            <div className="h-64 overflow-hidden">
+            <div className="h-48 sm:h-64 overflow-hidden">
               <img src="/fleet-zestaw.jpeg" alt="Zestaw z przyczepą" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             </div>
-            <div className="p-8">
-              <h4 className="text-2xl font-bold uppercase tracking-wide mb-4">Zestaw z przyczepą</h4>
+            <div className="p-5 sm:p-8">
+              <h4 className="text-xl sm:text-2xl font-bold uppercase tracking-wide mb-3 sm:mb-4">Zestaw z przyczepą</h4>
               <p className="text-white/40 text-sm leading-relaxed mb-6">
                 Pełny zestaw transportowy — laweta Iveco Daily z przyczepą. Jednoczesny przewóz do 3 pojazdów, optymalizacja kosztów.
               </p>
@@ -393,32 +393,40 @@ function Testimonials() {
   ];
 
   const [page, setPage] = useState(0);
-  const perPage = 3;
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  const perPage = isMobile ? 1 : 3;
   const totalPages = Math.ceil(reviews.length / perPage);
-  const visible = reviews.slice(page * perPage, page * perPage + perPage);
+  const safePage = Math.min(page, totalPages - 1);
+  const visible = reviews.slice(safePage * perPage, safePage * perPage + perPage);
 
   return (
-    <section className="bg-[#0e0e0e] py-28">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 gap-6">
+    <section className="bg-[#0e0e0e] py-16 sm:py-28">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 sm:mb-16 gap-4 sm:gap-6">
           <div>
-            <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-wide">Opinie</h2>
-            <h3 className="text-4xl sm:text-5xl font-bold uppercase tracking-wide mt-2">Klientów</h3>
+            <h2 className="text-3xl sm:text-5xl font-light uppercase tracking-wide">Opinie</h2>
+            <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-wide mt-1 sm:mt-2">Klientów</h3>
             <p className="text-white/30 text-sm mt-4">Źródło: Clicktrans.pl — {reviews.length} pozytywnych opinii</p>
           </div>
           <div className="flex items-center gap-3">
-            <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={page === 0} className="w-12 h-12 border border-white/10 rounded flex items-center justify-center text-white/40 hover:text-white hover:border-[#E31937] transition-all disabled:opacity-20 disabled:hover:border-white/10 disabled:hover:text-white/40">
+            <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={safePage === 0} className="w-12 h-12 border border-white/10 rounded flex items-center justify-center text-white/40 hover:text-white hover:border-[#E31937] transition-all disabled:opacity-20 disabled:hover:border-white/10 disabled:hover:text-white/40">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" /></svg>
             </button>
-            <span className="text-white/30 text-sm tabular-nums min-w-[3rem] text-center">{page + 1} / {totalPages}</span>
-            <button onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))} disabled={page === totalPages - 1} className="w-12 h-12 border border-white/10 rounded flex items-center justify-center text-white/40 hover:text-white hover:border-[#E31937] transition-all disabled:opacity-20 disabled:hover:border-white/10 disabled:hover:text-white/40">
+            <span className="text-white/30 text-sm tabular-nums min-w-[3rem] text-center">{safePage + 1} / {totalPages}</span>
+            <button onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))} disabled={safePage === totalPages - 1} className="w-12 h-12 border border-white/10 rounded flex items-center justify-center text-white/40 hover:text-white hover:border-[#E31937] transition-all disabled:opacity-20 disabled:hover:border-white/10 disabled:hover:text-white/40">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {visible.map((r, idx) => (
-            <div key={page * perPage + idx} className="bg-[#151515] border border-white/5 rounded p-8 sm:p-10 flex flex-col">
+            <div key={safePage * perPage + idx} className="bg-[#151515] border border-white/5 rounded p-6 sm:p-10 flex flex-col">
               <div className="flex gap-1 justify-center mb-6">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5 text-[#E31937]" fill="currentColor" viewBox="0 0 20 20">
@@ -445,23 +453,23 @@ function Testimonials() {
 /* ───────────────────────── CONTACT ── */
 function Contact() {
   return (
-    <section id="kontakt" className="bg-[#0a0a0a] py-28 relative">
+    <section id="kontakt" className="bg-[#0a0a0a] py-16 sm:py-28 relative">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(227,25,55,0.04)_0%,_transparent_60%)]" />
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light uppercase tracking-wide">Skontaktuj się</h2>
-          <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide mt-2">Z nami</h3>
-          <p className="text-white/40 text-base sm:text-lg max-w-2xl mx-auto mt-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light uppercase tracking-wide">Skontaktuj się</h2>
+          <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide mt-1 sm:mt-2">Z nami</h3>
+          <p className="text-white/40 text-sm sm:text-lg max-w-2xl mx-auto mt-4 sm:mt-8">
             Potrzebujesz wyceny? Zadzwoń, napisz na WhatsApp lub wyślij e-mail.
           </p>
         </div>
-        <div className="bg-[#111] border border-white/5 rounded p-8 max-w-2xl mx-auto mb-10 text-center">
+        <div className="bg-[#111] border border-white/5 rounded p-5 sm:p-8 max-w-2xl mx-auto mb-8 sm:mb-10 text-center">
           <p className="text-white/50 text-sm font-medium">GLOVIX Bartłomiej Adamiec</p>
           <p className="text-white/30 text-sm mt-1">52, 38-500 Sanoczek, woj. podkarpackie</p>
           <p className="text-white/20 text-xs mt-2">NIP: 6871983552 &nbsp;|&nbsp; REGON: 528636717</p>
         </div>
         <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <a href={`tel:${PHONE}`} className="group bg-[#111] border border-white/5 rounded p-10 text-center hover:border-[#E31937]/30 transition-all duration-500 block">
+          <a href={`tel:${PHONE}`} className="group bg-[#111] border border-white/5 rounded p-6 sm:p-10 text-center hover:border-[#E31937]/30 transition-all duration-500 block">
             <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-6 group-hover:border-[#E31937]/50 transition-all duration-500">
               <svg className="w-6 h-6 text-white/40 group-hover:text-[#E31937] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -470,7 +478,7 @@ function Contact() {
             <h4 className="text-sm font-bold uppercase tracking-widest mb-3">Telefon</h4>
             <p className="text-[#E31937] text-sm font-medium">{PHONE}</p>
           </a>
-          <a href={`https://wa.me/${WHATSAPP.replace("+", "")}`} target="_blank" rel="noopener noreferrer" className="group bg-[#111] border border-white/5 rounded p-10 text-center hover:border-[#25D366]/30 transition-all duration-500 block">
+          <a href={`https://wa.me/${WHATSAPP.replace("+", "")}`} target="_blank" rel="noopener noreferrer" className="group bg-[#111] border border-white/5 rounded p-6 sm:p-10 text-center hover:border-[#25D366]/30 transition-all duration-500 block">
             <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-6 group-hover:border-[#25D366]/50 transition-all duration-500">
               <svg className="w-6 h-6 text-white/40 group-hover:text-[#25D366] transition-colors duration-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -479,7 +487,7 @@ function Contact() {
             <h4 className="text-sm font-bold uppercase tracking-widest mb-3">WhatsApp</h4>
             <p className="text-[#25D366] text-sm font-medium">{WHATSAPP}</p>
           </a>
-          <a href={`mailto:${EMAIL}`} className="group bg-[#111] border border-white/5 rounded p-10 text-center hover:border-[#E31937]/30 transition-all duration-500 block">
+          <a href={`mailto:${EMAIL}`} className="group bg-[#111] border border-white/5 rounded p-6 sm:p-10 text-center hover:border-[#E31937]/30 transition-all duration-500 block">
             <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-6 group-hover:border-[#E31937]/50 transition-all duration-500">
               <svg className="w-6 h-6 text-white/40 group-hover:text-[#E31937] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -497,34 +505,34 @@ function Contact() {
 /* ───────────────────────── FOOTER ── */
 function Footer() {
   return (
-    <footer className="bg-[#080808] border-t border-white/5 py-16">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-[#080808] border-t border-white/5 py-10 sm:py-16">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
           <div>
-            <img src="/logo.png" alt="GLOVIX" className="h-10 w-auto mb-6" />
-            <p className="text-white/30 text-sm leading-relaxed">
+            <img src="/logo.png" alt="GLOVIX" className="h-8 sm:h-10 w-auto mb-4 sm:mb-6" />
+            <p className="text-white/30 text-xs sm:text-sm leading-relaxed">
               Profesjonalny transport samochodów na lawecie w całej Europie. Szybko, bezpiecznie i w konkurencyjnej cenie.
             </p>
           </div>
           <div>
-            <h5 className="text-sm font-bold uppercase tracking-widest mb-5">Dane firmowe</h5>
-            <ul className="space-y-2 text-white/40 text-sm">
+            <h5 className="text-xs sm:text-sm font-bold uppercase tracking-widest mb-3 sm:mb-5">Dane firmowe</h5>
+            <ul className="space-y-1.5 sm:space-y-2 text-white/40 text-xs sm:text-sm">
               <li>GLOVIX Bartłomiej Adamiec</li>
               <li>52, 38-500 Sanoczek</li>
               <li>woj. podkarpackie</li>
             </ul>
           </div>
           <div>
-            <h5 className="text-sm font-bold uppercase tracking-widest mb-5">Rejestracja</h5>
-            <ul className="space-y-2 text-white/40 text-sm">
+            <h5 className="text-xs sm:text-sm font-bold uppercase tracking-widest mb-3 sm:mb-5">Rejestracja</h5>
+            <ul className="space-y-1.5 sm:space-y-2 text-white/40 text-xs sm:text-sm">
               <li>NIP: 6871983552</li>
               <li>REGON: 528636717</li>
               <li>Działalność od: 14.05.2024</li>
             </ul>
           </div>
           <div>
-            <h5 className="text-sm font-bold uppercase tracking-widest mb-5">Kontakt</h5>
-            <ul className="space-y-2 text-sm">
+            <h5 className="text-xs sm:text-sm font-bold uppercase tracking-widest mb-3 sm:mb-5">Kontakt</h5>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
               <li><a href={`tel:${PHONE}`} className="text-white/40 hover:text-[#E31937] transition-colors">{PHONE}</a></li>
               <li><a href={`mailto:${EMAIL}`} className="text-white/40 hover:text-[#E31937] transition-colors">{EMAIL}</a></li>
               <li><a href={`https://wa.me/${WHATSAPP.replace("+", "")}`} target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-[#25D366] transition-colors">WhatsApp</a></li>
@@ -549,10 +557,10 @@ function WhatsAppFloat() {
       href={`https://wa.me/${WHATSAPP.replace("+", "")}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BD5A] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl shadow-[#25D366]/30 hover:scale-110 transition-all"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-[#25D366] hover:bg-[#20BD5A] text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-2xl shadow-[#25D366]/30 hover:scale-110 transition-all"
       aria-label="WhatsApp"
     >
-      <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
       </svg>
     </a>
