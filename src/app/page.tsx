@@ -171,18 +171,29 @@ function SocialSidebar() {
 
 /* ───────────────────────── HERO ── */
 function Hero() {
+  const [videoFailed, setVideoFailed] = useState(false);
+
   return (
     <section className="hero-bg min-h-screen flex items-end relative overflow-hidden">
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/hero-video.webm" type="video/webm" />
-        </video>
+        {!videoFailed ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            onError={() => setVideoFailed(true)}
+          >
+            <source src="/hero-video.webm" type="video/webm" />
+          </video>
+        ) : (
+          <img
+            src="/hero-bg.jpeg"
+            alt="GLOVIX Transport"
+            className="w-full h-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-black/50" />
       </div>
       <div className="relative z-10 px-8 sm:px-16 pb-24 pt-32 max-w-4xl">
