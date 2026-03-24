@@ -455,6 +455,11 @@ function Contact() {
             Potrzebujesz wyceny? Zadzwoń, napisz na WhatsApp lub wyślij e-mail.
           </p>
         </div>
+        <div className="bg-[#111] border border-white/5 rounded p-8 max-w-2xl mx-auto mb-10 text-center">
+          <p className="text-white/50 text-sm font-medium">GLOVIX Bartłomiej Adamiec</p>
+          <p className="text-white/30 text-sm mt-1">52, 38-500 Sanoczek, woj. podkarpackie</p>
+          <p className="text-white/20 text-xs mt-2">NIP: 6871983552 &nbsp;|&nbsp; REGON: 528636717</p>
+        </div>
         <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
           <a href={`tel:${PHONE}`} className="group bg-[#111] border border-white/5 rounded p-10 text-center hover:border-[#E31937]/30 transition-all duration-500 block">
             <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-6 group-hover:border-[#E31937]/50 transition-all duration-500">
@@ -492,12 +497,46 @@ function Contact() {
 /* ───────────────────────── FOOTER ── */
 function Footer() {
   return (
-    <footer className="bg-[#080808] border-t border-white/5 py-10">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-        <img src="/logo.png" alt="GLOVIX" className="h-8 w-auto opacity-60" />
-        <p className="text-white/20 text-xs tracking-wider">
-          &copy; {new Date().getFullYear()} GLOVIX. Wszelkie prawa zastrzeżone.
-        </p>
+    <footer className="bg-[#080808] border-t border-white/5 py-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+          <div>
+            <img src="/logo.png" alt="GLOVIX" className="h-10 w-auto mb-6" />
+            <p className="text-white/30 text-sm leading-relaxed">
+              Profesjonalny transport samochodów na lawecie w całej Europie. Szybko, bezpiecznie i w konkurencyjnej cenie.
+            </p>
+          </div>
+          <div>
+            <h5 className="text-sm font-bold uppercase tracking-widest mb-5">Dane firmowe</h5>
+            <ul className="space-y-2 text-white/40 text-sm">
+              <li>GLOVIX Bartłomiej Adamiec</li>
+              <li>52, 38-500 Sanoczek</li>
+              <li>woj. podkarpackie</li>
+            </ul>
+          </div>
+          <div>
+            <h5 className="text-sm font-bold uppercase tracking-widest mb-5">Rejestracja</h5>
+            <ul className="space-y-2 text-white/40 text-sm">
+              <li>NIP: 6871983552</li>
+              <li>REGON: 528636717</li>
+              <li>Działalność od: 14.05.2024</li>
+            </ul>
+          </div>
+          <div>
+            <h5 className="text-sm font-bold uppercase tracking-widest mb-5">Kontakt</h5>
+            <ul className="space-y-2 text-sm">
+              <li><a href={`tel:${PHONE}`} className="text-white/40 hover:text-[#E31937] transition-colors">{PHONE}</a></li>
+              <li><a href={`mailto:${EMAIL}`} className="text-white/40 hover:text-[#E31937] transition-colors">{EMAIL}</a></li>
+              <li><a href={`https://wa.me/${WHATSAPP.replace("+", "")}`} target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-[#25D366] transition-colors">WhatsApp</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-white/20 text-xs tracking-wider">
+            &copy; {new Date().getFullYear()} GLOVIX Bartłomiej Adamiec. Wszelkie prawa zastrzeżone.
+          </p>
+          <p className="text-white/10 text-xs">NIP: 6871983552 | REGON: 528636717</p>
+        </div>
       </div>
     </footer>
   );
