@@ -326,7 +326,7 @@ function Fleet() {
                 Nowoczesna laweta na bazie Iveco Daily z hydraulicznym systemem załadunku. Idealny do szybkiego i bezpiecznego transportu.
               </p>
               <ul className="space-y-3">
-                {["Hydrauliczny najazd", "Wyciągarka elektryczna", "Pełne ubezpieczenie ładunku", "GPS tracking"].map((item) => (
+                {["Pneumatycznie obniżany najazd", "Wyciągarka elektryczna", "Pełne ubezpieczenie ładunku", "GPS tracking"].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-white/60 text-sm">
                     <span className="w-1.5 h-1.5 bg-[#E31937] rounded-full flex-shrink-0" />
                     {item}
@@ -345,7 +345,7 @@ function Fleet() {
                 Pełny zestaw transportowy — laweta Iveco Daily z przyczepą. Jednoczesny przewóz do 3 pojazdów, optymalizacja kosztów.
               </p>
               <ul className="space-y-3">
-                {["Do 3 pojazdów naraz", "Optymalizacja kosztów", "Profesjonalne mocowanie", "Transport door-to-door"].map((item) => (
+                {["Do 3 pojazdów naraz", "Optymalizacja kosztów", "Profesjonalne zabezpieczenie ładunku", "Transport door-to-door"].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-white/60 text-sm">
                     <span className="w-1.5 h-1.5 bg-[#E31937] rounded-full flex-shrink-0" />
                     {item}
@@ -548,9 +548,7 @@ function Footer() {
               <li>52, 38-500 Sanoczek</li>
               <li>woj. podkarpackie</li>
             </ul>
-          </div>
-          <div>
-            <h5 className="text-xs sm:text-sm font-bold uppercase tracking-widest mb-3 sm:mb-5">Rejestracja</h5>
+            <h5 className="text-xs sm:text-sm font-bold uppercase tracking-widest mt-5 mb-3 sm:mb-5">Rejestracja</h5>
             <ul className="space-y-1.5 sm:space-y-2 text-white/40 text-xs sm:text-sm">
               <li>NIP: 6871983552</li>
               <li>REGON: 528636717</li>
