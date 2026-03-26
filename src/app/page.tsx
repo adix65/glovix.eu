@@ -289,18 +289,23 @@ function Services() {
 /* ───────────────────────── STATS ── */
 function Stats() {
   return (
-    <section id="o-nas" className="stats-bg relative py-20 sm:py-44 overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-around gap-10 sm:gap-16">
-        {[
-          { value: "EU", label: "Zasięg" },
-          { value: "24/7", label: "Dostępność" },
-          { value: "100%", label: "Ubezpieczenie" },
-        ].map((s) => (
-          <div key={s.label} className="text-center">
-            <div className="text-5xl sm:text-7xl lg:text-8xl font-black text-white italic tracking-tight">{s.value}</div>
-            <div className="text-white/50 text-sm sm:text-lg mt-2 sm:mt-3 font-light tracking-wider">{s.label}</div>
-          </div>
-        ))}
+    <section id="o-nas" className="stats-bg relative py-16 sm:py-28 overflow-hidden">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8">
+        <h3 className="text-center text-2xl sm:text-4xl font-bold uppercase tracking-wider mb-10 sm:mb-16">Dlaczego my?</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {[
+            { icon: "🛡️", title: "Ubezpieczenie do 1 mln €", desc: "Pełne ubezpieczenie ładunków do miliona euro — Twój pojazd jest bezpieczny na każdym etapie transportu." },
+            { icon: "📄", title: "Dokument CMR", desc: "Do każdego zlecenia wystawiamy międzynarodowy list przewozowy CMR — pełna dokumentacja transportu." },
+            { icon: "📸", title: "Zdjęcia załadunku i rozładunku", desc: "Dokumentujemy stan pojazdu przed załadunkiem i po rozładunku — pełna transparentność i bezpieczeństwo." },
+            { icon: "📍", title: "Śledzenie GPS", desc: "Możliwość śledzenia transportu w czasie rzeczywistym — zawsze wiesz, gdzie jest Twój pojazd." },
+          ].map((item) => (
+            <div key={item.title} className="bg-[#111] border border-white/5 rounded p-6 sm:p-8 text-center hover:border-[#E31937]/20 transition-all duration-500">
+              <div className="text-4xl mb-4">{item.icon}</div>
+              <h4 className="text-base sm:text-lg font-bold uppercase tracking-wide mb-3">{item.title}</h4>
+              <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
